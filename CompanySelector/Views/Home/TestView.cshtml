@@ -1,0 +1,36 @@
+﻿@model TestModel
+@{
+    ViewData["Title"] = "TestView";
+}
+
+<h2>TestView</h2>
+
+
+@{
+    int images = Model.getList().Count;
+    int rows = (int)Math.Ceiling((double)images / 3);
+    int n = 0;
+    for (int i = 0; i < rows; i++)
+    {
+
+        for (int j = 0; j < images; j++)
+        {
+            if (j == 3)
+            {
+                break;
+            }
+            n++;
+            string path = $"~/images/ss/m{n}.png";
+            <div class="col-md-4 devbox" style="text-align:center">
+                <div class="col-md-12" >
+                    <img src=@Url.Content(path) height="250" />
+                </div>
+                <div class="col-md-12">
+                    <input type="radio"   value="" />
+                </div>
+            </div>
+        }
+
+    }
+
+}

@@ -1,0 +1,174 @@
+﻿@model ClientOrganisation
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="col-md-12">&nbsp;</div>
+
+<div class="col-md-12">
+    <form class="form-inline" asp-action="BuildAndroid" asp-controller="Home" method="post" style="font-size:20px;">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="col-md-12" style="margin-bottom:1vh">
+                    <label asp-for="company">Select Company :</label>
+                    <input asp-for="company" placeholder="Enter brand name here" class="form-control" />
+                </div>
+                <div class="col-md-12 devbox" style="margin-bottom:1vh">
+                    <label asp-for="update">Create new instance :</label>
+                    <input type="checkbox" asp-for="update" />
+                    <span style="font-size:small;">leaving unchecked will update existing App</span>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-12" style="background-color:rgb(198, 198, 198); margin-bottom:1.5vh;">
+                    <label>Select icon</label>
+                </div>
+                <div class="col-md-12" style="text-align:center; font-size:medium">
+                    <div class="col-md-4">
+                        <div class="col-md-12">
+                            <img src="~/images/cnk.png" height="72" />
+                        </div>
+                        <div class="col-md-12">
+                            <label>Select Icon</label>
+                            <input type="radio" asp-for="selectIcon" value="cnk" checked="checked" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col-md-12">
+                            <img src="~/images/Mastek.png" height="72" />
+                        </div>
+                        <div class="col-md-12">
+                            <label>Select Icon</label>
+                            <input type="radio" asp-for="selectIcon" value="mastek" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 spacer"></div>
+        <div class="col-md-12">
+            <div class="col-md-12" style="background-color:rgb(198, 198, 198)">
+                <label>Select layout</label>
+            </div>
+
+            <div class="col-md-12" style="font-size:medium; text-align:center; margin-top:2vh;">
+                <div class="col-md-2 devbox">
+                    <label>Select Theme</label>
+                    <input type="radio" asp-for="layoutmodel.themenumber" value="t1" checked="checked" />
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-12">
+                        <img src="~/images/ss/Theme1_Screen1.png" height="250" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Select layout</label>
+                        <input type="radio" asp-for="layoutmodel.layout" value="m1" checked="checked" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-12 ">
+                        <img src="~/images/ss/Theme1_Screen2.png" height="250" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Select layout</label>
+                        <input type="radio" asp-for="layoutmodel.layout" value="m2" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-12 ">
+                        <img src="~/images/ss/Theme1_Screen3.png" height="250" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Select layout</label>
+                        <input type="radio" asp-for="layoutmodel.layout" value="m3" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" style="font-size:medium; text-align:center; margin-top:2vh;">
+                <div class="col-md-2 devbox">
+                    <label>Select Theme</label>
+                    <input type="radio" asp-for="layoutmodel.themenumber" value="t2" />
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-12 ">
+                        <img src="~/images/ss/Theme2_Screen1.png" height="250" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Select layout</label>
+                        <input type="radio" asp-for="layoutmodel.layout" value="n1" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-12 ">
+                        <img src="~/images/ss/Theme2_Screen2.png" height="250" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Select layout</label>
+                        <input type="radio" asp-for="layoutmodel.layout" value="n2" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-12 ">
+                        <img src="~/images/ss/Theme2_Screen3.png" height="250" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Select layout</label>
+                        <input type="radio" asp-for="layoutmodel.layout" value="n3" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 spacer"></div>
+
+        <div class=" col-md-12" style="margin-bottom:2vh;">
+            <div class="col-md-12" style="background-color:rgb(198, 198, 198)">
+                <label>Select features to be included</label>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <div class="checkbox">
+                            <input type="checkbox" asp-for="features.mainScreen.itinerary" checked readonly />
+                            <label asp-for="features.mainScreen.itinerary">Itinerary</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="checkbox">
+                            <input type="checkbox" asp-for="features.mainScreen.flightStatus" />
+                            <label asp-for="features.mainScreen.flightStatus">Flight Status</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="checkbox disabled">
+                            <input type="checkbox" asp-for="features.mainScreen.emergencyContact" checked readonly />
+                            <label asp-for="features.mainScreen.emergencyContact">Emergency Contacts</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="checkbox">
+                            <input type="checkbox" asp-for="features.mainScreen.flightBookingStatus" />
+                            <label asp-for="features.mainScreen.flightBookingStatus">Flight Booking Status</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="checkbox">
+                            <input type="checkbox" asp-for="features.mainScreen.hotelBookingStatus" />
+                            <label asp-for="features.mainScreen.hotelBookingStatus">Hotel Booking Status</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" style="text-align:center;">
+            <button class="btn btn-lg btn-info" type="submit">Submit</button>
+        </div>
+
+    </form>
+</div>
+
