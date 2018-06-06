@@ -38,7 +38,7 @@ namespace CompanySelector.Actions
                 string my_String = mstr.ToLower();
 
                 var data = File.ReadAllLines(ProjectPathConst.buildgradle);
-                data[5] = ProjectPathConst.appid + "com." + my_String; ;
+                data[5] = ProjectPathConst.appid +"\""+ $"com.{my_String}"+"\"";
                 File.WriteAllLines(ProjectPathConst.buildgradle, data);
             }
 
